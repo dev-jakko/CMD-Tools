@@ -17,7 +17,7 @@ if "%1"=="--profile" (
         :: github --profile
         start "" "https://github.com/%USER_PROFILE%"
         exit /b
-    ) else if not "%2"=="-h" if not "%2"=="--repo" if not "%3"=="--repo"  (
+    ) else if not "%2"=="-h" (
 
         :: github --profile [username]
         start "" "https://github.com/%2"

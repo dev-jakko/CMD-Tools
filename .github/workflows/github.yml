@@ -1,0 +1,61 @@
+name: Test GitHub Batch Commands
+
+on: [push, pull_request]  # Trigger the workflow on push and pull request events
+
+jobs:
+  test:
+    runs-on: windows-latest  # The job will run on a Windows environment
+
+    steps:
+      # Checkout the repository to access the batch script
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Test: Basic call without arguments
+      - name: Test: Call github.bat without arguments
+        run: |
+          echo "##[group]Running github.bat without arguments"
+          call github.bat
+          echo "##[endgroup]"
+
+      # Test: Help command (-h flag)
+      - name: Test: Call github.bat with -h flag
+        run: |
+          echo "##[group]Running github.bat with -h flag"
+          call github.bat -h
+          echo "##[endgroup]"
+
+      # Test: Invalid flag
+      - name: Test: Call github.bat with an invalid flag
+        run: |
+          echo "##[group]Running github.bat with an invalid flag"
+          call github.bat --invalidflag
+          echo "##[endgroup]"
+
+      # Test: --profile without a username (default profile)
+      - name: Test: Call github.bat with --profile (default profile)
+        run: |
+          echo "##[group]Running github.bat with --profile (default profile)"
+          call github.bat --profile
+          echo "##[endgroup]"
+
+      # Test: --profile with a specific username
+      - name: Test: Call github.bat with --profile exampleuser
+        run: |
+          echo "##[group]Running github.bat with --profile exampleuser"
+          call github.bat --profile exampleuser
+          echo "##[endgroup]"
+
+      # Test: --profile with a specific username and --repo
+      - name: Test: Call github.bat with --profile exampleuser and --repo example-repo
+        run: |
+          echo "##[group]Running github.bat with --profile exampleuser and --repo example-repo"
+          call github.bat --profile exampleuser --repo example-repo
+          echo "##[endgroup]"
+
+      # Test: --profile with missing username and --repo
+      - name: Test: Call github.bat with --profile missing username and --repo
+        run: |
+          echo "##[group]Running github.bat with --profile missing username and --repo"
+          call github.bat --profile --repo example-repo
+          echo "##[endgroup]"
