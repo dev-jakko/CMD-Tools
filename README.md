@@ -71,22 +71,14 @@ To get started with CMD Tools, follow the steps below to install and configure t
         - Click on the Code button.
         - Select Download ZIP and extract it to a directory on your local machine.
 
-2. Navigate to the Project Directory:
-
-    Once you’ve downloaded or cloned the repository, navigate to the folder where it is located. This is where the .bat files are stored.
-
-    ```bash
-    cd path\to\cmd-tools
-    ```
-
-3. Verify Batch File Permissions:
+2. Verify Batch File Permissions:
 
     Make sure that your batch files are executable. In most cases, batch files should already have execution permission, but if you encounter any issues, you can check the file properties and ensure there are no restrictions.
     - Right-click the batch file.
     - Select Properties.
     - Ensure there are no block or restriction options enabled under the General tab.
 
-4. Add the Folder to the System Environment Variables `(PATH)`:
+3. Add the Folder to the System Environment Variables `(PATH)`:
 
     To ensure you can call the CMD Tools from any command line window, add the directory to your system's PATH.
     - Open Start, search for "Environment Variables", and select "Edit the system environment variables".
@@ -96,12 +88,12 @@ To get started with CMD Tools, follow the steps below to install and configure t
     - Click OK to save the changes.
     - Restart any open Command Prompt windows for the changes to take effect
 
-5. Run the Batch Scripts:
+4. Run the Batch Scripts:
 
     After installation, you can run the batch files directly from the command line.
     - To run the github.bat script, simply type:
     ```bash
-    github.bat --profile exampleuser
+    github --profile exampleuser
     ```
     This will open the specified GitHub profile in your default browser.
 

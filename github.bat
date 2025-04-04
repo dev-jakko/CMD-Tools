@@ -3,6 +3,8 @@ setlocal
 
 :: Default Variables
 set USER_PROFILE="dev-jakko"
+set MAIN_REPO="CMD-Tools"
+set PER_PAGE=20
 
 :: github
 if "%1"=="" (
@@ -17,17 +19,9 @@ if "%1"=="--profile" (
         :: github --profile
         start "" "https://github.com/%USER_PROFILE%"
         exit /b
-    ) else if not "%2"=="-h" if not "%2"=="--repo" if not "%3"=="--repo"  (
-
-        :: github --profile [username]
-        start "" "https://github.com/%2"
-        exit /b 
-    )
-
-    :: -repo
-    if "%2"=="--repo" (
+    ) else if "%2"=="--repo" (
         if "%3"=="" (
-            echo Invalid usage of "--repo". Use "github --profile -h" for a list of commands.
+            start "" "https://github.com/%USER_PROFILE%/%MAIN_REPO%"
             exit /b
         ) else (
 
@@ -45,12 +39,28 @@ if "%1"=="--profile" (
             start "" "https://github.com/%2/%4"
             exit /b
         )
+    ) else if "%2"=="--repolist" (
+        
+        :: github --profile --repolist
+        echo Listing repositories for profile: %USER_PROFILE%
+        curl -s "https://api.github.com/users/%USER_PROFILE%/repos?per_page=%PER_PAGE%" | findstr /i /c:"full_name"
+        exit /b
+    ) else if "%3"=="--repolist" (
+        
+        :: github --profile [username] --repolist
+        echo Listing repositories for profile: %2
+        curl -s "https://api.github.com/users/%2/repos?per_page=%PER_PAGE%" | findstr /i /c:"full_name"
+        exit /b
+    ) else if not "%2"=="-h" (
+
+        :: github --profile [username]
+        start "" "https://github.com/%2"
+        exit /b
     )
 )
 
 :: github -h
 if "%1"=="-h" (
-    cls
     echo.
     echo   github                          Opens GitHub
     echo   github -h                       Lists GitHub commands
@@ -62,16 +72,20 @@ if "%1"=="-h" (
 )
 
 :: github --profile -h
-if "%1"=="--profile" if "%2"=="-h" (
+if "%1"=="--profile" ( if "%2"=="-h" (
     echo.
     echo   github --profile                                  Opens the default GitHub profile.
     echo   github --profile [username]                       Opens the GitHub profile of the specified user.
     echo.
+    echo   github --profile --repo                           Opens the default repo from the default profile.
     echo   github --profile --repo [name]                    Opens the specified repo from the default profile.
-    echo   github --profile [username] --repo [repo]         Opens the specified repo from the specified profile.
+    echo   github --profile [username] --repo [name]         Opens the specified repo from the specified profile.
+    echo.
+    echo   github --profile --repolist                       Displays a list of repositories in the default GitHub profile.
+    echo   github --profile [username] --repolist            Displays a list of repositories in the specified GitHub profile.
     echo.
     exit /b
-)
+))
 
 :: Invalid command
 echo Invalid usage of "github". Use "github -h" for a list of commands.
