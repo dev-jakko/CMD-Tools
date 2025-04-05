@@ -9,13 +9,13 @@ Designed for developers, system administrators, and power users, CMD Tools reduc
 ## 📑 Table of Contents
 
 - [Key Features](#-key-features)
-- [Examples](#examples)
-- [How It Works](#how-it-works)
-- [Benefits](#benefits)
-- [Who Should Use It](#who-should-use-it)
-- [Installation Guide](#installation-guide)
-- [Contributing](#contributing)
-- [License](#license)
+- [Examples](#-examples)
+- [How It Works](#-how-it-works)
+- [Benefits](#-benefits)
+- [Who Should Use It](#-who-should-use-it)
+- [Installation Guide](#-installation-guide)
+- [Contributing](#-contributing)
+- [License](#-license)
 
 ---
 
