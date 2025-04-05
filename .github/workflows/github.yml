@@ -24,6 +24,13 @@ jobs:
           echo "##[group]Running github.bat with -h flag"
           cmd /c "github.bat -h"
           echo "##[endgroup]"
+          
+      # Test: --profile and help command (-h flag)
+      - name: "Test: Call github.bat with --profile and -h flag"
+        run: |
+          echo "##[group]Running github.bat with --profile and -h flag"
+          cmd /c "github.bat --profile -h"
+          echo "##[endgroup]"
 
       # Test: Invalid flag
       - name: "Test: Call github.bat with an invalid flag"
@@ -56,6 +63,25 @@ jobs:
       # Test: --profile with missing username and --repo
       - name: "Test: Call github.bat with --profile missing username and --repo"
         run: |
-          echo "##[group]Running github.bat with --profile missing username and --repo"
+          echo "##[group]Running github.bat with --profile missing username and --repo example-repo"
           cmd /c "github.bat --profile --repo example-repo"
           echo "##[endgroup]"
+      
+      # Test: --profile with missing username and --repo (default repo)
+      - name: "Test: Call github.bat with --profile missing username and --repo"
+        run : |
+          echo "##[group]Running github.bat with --profile missing username and --repo"
+          cmd /c "github.bat --profile --repo"
+          echo "##[endgroup]"
+      
+      # Test: --profile with a specific username and --repolist
+      - name: "Test: Call github.bat with --profile exampleuser and --repolist"
+        run: |
+          echo "##[group]Running github.bat with --profile missing username and --repolist"
+          cmd /c "github.bat --profile exampleuser --repolist"
+      
+      # Test: --profile with missing username and --repolist
+      - name: "Test: Call github.bat with --profile and --repolist"
+        run: |
+          echo "##[group]Running github.bat with --profile and --repolist"
+          cmd /c "github.bat --profile --repolist"

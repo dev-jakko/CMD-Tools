@@ -1,0 +1,89 @@
+name: Test GitHub Batch Commands
+
+on: [push, pull_request]  # Trigger the workflow on push and pull request events
+
+jobs:
+  test:
+    runs-on: windows-latest  # The job will run on a Windows environment
+
+    steps:
+      # Checkout the repository to access the batch script
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Test: Basic call without arguments
+      - name: " Test: Call chatgpt.bat without arguments"
+        run: |
+          echo "##[group]Running chatgpt.bat without arguments"
+          cmd /c "chatgpt.bat"
+          echo "##[endgroup]"
+
+      # Test: Help command (-h flag)
+      - name: "Test: Call chatpts.bat with -h flag"
+        run: |
+          echo "##[group]Running chatgpt.bat with -h flag"
+          cmd /c "chatgpt.bat -h"
+          echo "##[endgroup]"
+
+      # Test: Invalid flag
+      - name: "Test: Call chatgpt.bat with an invalid flag"
+        run: |
+          echo "##[group]Running chatgpt.bat with an invalid flag"
+          cmd /c "chatgpt.bat --invalidflag"
+          echo "##[endgroup]"
+      
+      # Test: --gpt with missing name
+      - name: "Test: Call chatgpt.bat with --gpt missing name"
+        run: |
+          echo "##[group]Running chatgpt.bat with --gpt missing name"
+          cmd /c "chatgpt.bat --gpt"
+          echo "##[endgroup]"
+      
+      # Test: --gpt with missing name
+      - name: "Test: Call chatgpt.bat with --gpt missing name"
+        run: |
+          echo "##[group]Running chatgpt.bat with --gpt missing name"
+          cmd /c "chatgpt.bat --gpt"
+          echo "##[endgroup]"
+      
+      # Test: --gpt with wolfram
+      - name: "Test: Call chatgpt.bat with --gpt wolfram"
+        run: |
+          echo "##[group]Running chatgpt.bat with --gpt wolfram"
+          cmd /c "chatgpt.bat --gpt wolfram"
+          echo "##[endgroup]"
+
+      # Test: --gpt with -h
+      - name: "Test: Call chatgpt.bat with --gpt and -h flag"
+        run: |
+          echo "##[group]Running chatgpt.bat with --gpt and -h flag"
+          cmd /c "chatgpt.bat --gpt -h"
+          echo "##[endgroup]"
+
+      # Test: --gptlist
+      - name: "Test: Call chatgpt.bat with --gptlist"
+        run: |
+          echo "##[group]Running chatgpt.bat with --gptlist"
+          cmd /c "chatgpt.bat --gptlist"
+          echo "##[endgroup]"
+
+      # Test: --gptsearch
+      - name: "Test: Call chatgpt.bat with --gptsearch"
+        run: |
+          echo "##[group]Running chatgpt.bat with --gptsearch"
+          cmd /c "chatgpt.bat --gptsearch"
+          echo "##[endgroup]"
+
+      # Test: --settings
+      - name: "Test: Call chatgpt.bat with --settings"
+        run: |
+          echo "##[group]Running chatgpt.bat with --settings"
+          cmd /c "chatgpt.bat --settings"
+          echo "##[endgroup]"
+
+      # Test: --temp
+      - name: "Test: Call chatgpt.bat with --temp"
+        run: |
+          echo "##[group]Running chatgpt.bat with --temp"
+          cmd /c "chatgpt.bat --temp"
+          echo "##[endgroup]"

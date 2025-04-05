@@ -62,9 +62,9 @@ if "%1"=="--profile" (
 :: github -h
 if "%1"=="-h" (
     echo.
-    echo   github                          Opens GitHub
-    echo   github -h                       Lists GitHub commands
-    echo   github --profile                Opens default GitHub profile
+    echo   github                          Opens GitHub.
+    echo   github -h                       Lists GitHub commands.
+    echo   github --profile                Opens default GitHub profile.
     echo.
     echo   * Use "github --[flag] -h" for more detailed descriptions of certain commands. *
     echo.
@@ -74,15 +74,15 @@ if "%1"=="-h" (
 :: github --profile -h
 if "%1"=="--profile" ( if "%2"=="-h" (
     echo.
-    echo   github --profile                                  Opens the default GitHub profile.
-    echo   github --profile [username]                       Opens the GitHub profile of the specified user.
+    echo   github --profile                                  Opens default GitHub profile.
+    echo   github --profile [username]                       Opens GitHub profile of the specified user.
     echo.
-    echo   github --profile --repo                           Opens the default repo from the default profile.
-    echo   github --profile --repo [name]                    Opens the specified repo from the default profile.
+    echo   github --profile --repo                           Opens default repo from default profile.
+    echo   github --profile --repo [name]                    Opens specified repo from default profile.
     echo   github --profile [username] --repo [name]         Opens the specified repo from the specified profile.
     echo.
-    echo   github --profile --repolist                       Displays a list of repositories in the default GitHub profile.
-    echo   github --profile [username] --repolist            Displays a list of repositories in the specified GitHub profile.
+    echo   github --profile --repolist                       Displays list of repositories in default GitHub profile.
+    echo   github --profile [username] --repolist            Displays list of repositories in specified GitHub profile.
     echo.
     exit /b
 ))
