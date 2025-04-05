@@ -1,5 +1,7 @@
 # ⚙️ CMD Tools
 
+![Logo](assets/logo.png)
+
 **CMD Tools** is a lightweight, user-friendly command-line utility built with batch scripting to automate repetitive tasks and streamline terminal workflows.
 
 Designed for developers, system administrators, and power users, CMD Tools reduces the friction of everyday tasks like web navigation—saving time, reducing clicks, and increasing productivity.
